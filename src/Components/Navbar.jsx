@@ -9,9 +9,14 @@ import { GiBookStorm } from "react-icons/gi"
 
 function Navbar() {
    
-    const navbar = document.querySelector(".navbar");
-    console.log(navbar)
-// Open navbar
+
+    
+   
+    
+
+    useEffect(() => {
+        const navbar = document.querySelector(".navbar");
+        // Open navbar
     function openNav() { 
         navbar.style.width = "250px"
         navbar.style.transition = ".3s"
@@ -21,6 +26,12 @@ function Navbar() {
         navbar.style.width = 0;
         navbar.style.transition = ".3s"
     }
+        const openNavbar = document.querySelector(".openav-btn");
+        const closeNavbar = document.querySelector(".closenav-btn");
+        openNavbar.addEventListener("click", openNav)
+        closeNavbar.addEventListener("click", closeNav)
+  })
+
 
   return (
       <div className=" m-auto  md:px-[20px]  shadow-[0_8px_6px_-6px_black]">
@@ -74,11 +85,11 @@ function Navbar() {
           <div className='block md:hidden pt-[2em] bg-blue-900'>
 
           <div className="flex text-center items-center justify-center">
-            <FaBars onClick={openNav} className="ml-3 cursor-pointer text-orange-600 text-xl openav-btn" />
+            <FaBars className="ml-3 cursor-pointer text-orange-600 text-xl openav-btn" />
                 <Link to="/">
                      <BiSearch className="ml-3 text-orange-600 text-xl" />
                 </Link>
-                <Link to="/">
+                <Link to="/signup">
                      <BsFillPersonFill className="ml-3 text-orange-600 text-xl" />
                 </Link>
                 <Link to="/">
@@ -91,7 +102,7 @@ function Navbar() {
 
           <div className="fixed right-0 top-0 h-screen left-0 w-0 overflow-x-hidden bg-white navbar">
                   <nav>
-                      <FaTimes onClick={closeNav} className="text-red-600 absolute cursor-pointer top-[10px] right-[20px] closenav-btn" />
+                      <FaTimes  className="text-red-600 absolute cursor-pointer top-[10px] right-[20px] closenav-btn" />
                       <ul className="flex items-left justify-center mt-8 flex-col pt-3">
                        
                           <a href="#electronics">
